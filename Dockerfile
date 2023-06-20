@@ -1,1 +1,4 @@
-from docker file syntax
+correct dockerfile
+
+
+adding changes to docker filee
