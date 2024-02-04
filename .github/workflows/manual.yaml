@@ -1,0 +1,32 @@
+name: Frontend CI/CD  
+
+
+on:
+  push:
+    branches:
+      - test1 
+      - dev
+      # - 'CI-*'
+
+
+
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Environment to deploy to'
+        required: true
+        type: choice
+        options:
+          - 'dev'
+          - 'stage'
+          - 'prod2'
+        default: 'dev'    
+  
+jobs:
+  CI-CD:
+    uses: "shayro12/protogit/.github/workflows/reusable.yaml@test1" 
+    secrets: inherit 
+    permissions:
+      id-token: write # This is required for requesting the JWT
+      contents: read
+      issues: write

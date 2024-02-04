@@ -1,0 +1,24 @@
+name: Frontend CI/CD Setup
+
+on:
+  # push:
+  #   branches:
+  #     - 'CI-*'
+  #     # - master 
+  #     # - 'BO-*'
+
+  #   paths:
+  #     - '.github/workflows/frontend-app.yml'
+  #     - WebApps/**
+  workflow_call:
+
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: print context and environments
+        run: |
+          echo "${{ toJson(github) }}"
+          echo ${{inputs.environment}}
+          printenv
