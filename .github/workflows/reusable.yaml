@@ -12,7 +12,8 @@ on:
   #     - WebApps/**
   workflow_call:
 
-
+env:
+  environment: ${{inputs.environment || github.ref_name== 'test1' && 'test' || 'dev'}}
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -20,5 +21,5 @@ jobs:
       - name: print context and environments
         run: |
           echo "${{ toJson(github) }}"
-          echo ${{inputs.environment}}
+          echo ${{env.environment}}
           printenv

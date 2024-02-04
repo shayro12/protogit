@@ -24,7 +24,7 @@ on:
   
 jobs:
   CI-CD:
-    uses: "shayro12/protogit/.github/workflows/reusable.yaml@test1" 
+    uses: "shayro12/protogit/.github/workflows/reusable.yaml@test1"
     secrets: inherit 
     permissions:
       id-token: write # This is required for requesting the JWT
